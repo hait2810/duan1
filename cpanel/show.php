@@ -104,7 +104,11 @@ if($_GET['show'] == 'showproducts') {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <?php 
+                $listCate = showcategorys();
+                foreach ($listCate as $key => $value) {
+                  echo '
+                  <tr>
                
                
                
@@ -113,7 +117,7 @@ if($_GET['show'] == 'showproducts') {
                   </td>
                
                   <td class="align-middle">
-                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="'.$ROOT_ADMIN.'?edit=editcategory&btn_cate='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                       Edit
                     </a>
                   </td>
@@ -123,6 +127,9 @@ if($_GET['show'] == 'showproducts') {
                     </a>
                   </td>
                 </tr>
+                  ';
+                }
+                ?>
             
               
              

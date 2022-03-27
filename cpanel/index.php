@@ -54,6 +54,19 @@ if(isset($_GET['edit'])){
     $view = "edit.php";
 }
 
+if(isset($_GET['edit'])){
+    if(isset($_POST['btn_category'])){
+        $updateCategory2 = updateCategory($name,$id_cate);
+        if($updateCategory2) $kq = "Thành công"; else $kq = $updateCategory2;
+    }else if(isset($_GET['btn_cate'])){
+       
+            $idcate = $btn_cate;
+            $showDetailCate = showDetailCategory($idcate);
+           
+    }
+    $view = 'edit.php';
+}
+
 
 include "./tpl.php";
 ?>

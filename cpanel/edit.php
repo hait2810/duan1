@@ -63,12 +63,13 @@ if($_GET['edit'] == 'editproduct'){
 <button type="submit" name="updateProduct" class="btn btn-primary">Sửa sản phẩm</button>
 </form>
 <?php 
-}else {
+}else if($_GET['edit'] == 'editcategory') {
     ?>
     <form method="POST">
     <div class="mb-3">
+      <input type="hidden" value="<?=$showDetailCate[0]['id']?>" name="id_cate" id="">
   <label for="exampleFormControlInput1" class="form-label">Tên danh mục:</label>
-  <input type="text" class="form-control" id="name" name="name" placeholder="Tên danh mục">
+  <input type="text" class="form-control" id="name" value="<?=$showDetailCate[0]['name']?>" name="name" placeholder="Tên danh mục">
 </div>
 <div class="mb-3">
   <h5><?php echo $kq; ?></h5>

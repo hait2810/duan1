@@ -23,4 +23,12 @@ function updateProduct($name,$price,$sale,$images,$images1,$images2,$description
         $sql = "UPDATE products SET name=?,price=?,sale=?,images=?,images1=?,images2=?,description=?,idcategory=? WHERE id=?";
         return pdo_execute($sql,$name,$price,$sale,$images,$images1,$images2,$description,$idcategory,$idsp);
 }
+function updateCategory($name,$id) {
+    $sql = "UPDATE categorys SET name=? WHERE id=?";
+    return pdo_execute($sql,$name,$id);
+}
+function showDetailCategory($id) {
+    $sql = "SELECT * FROM categorys WHERE id=?";
+    return pdo_query($sql, $id);
+}
 ?>
