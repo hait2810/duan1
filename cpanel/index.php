@@ -5,6 +5,13 @@ include "../dao/admin.php";
 $view = "show.php";
 extract($_REQUEST);
 
+// check quyền
+if($_SESSION['roleId'] != 1){
+    echo "Chỉ admin mới có quyền truy cập";
+    exit;
+}
+
+// ADD CATEGORY + PRODUCTS
 
 if(isset($_GET['add'])){
     if(isset($addproduct)){
@@ -12,16 +19,17 @@ if(isset($_GET['add'])){
         $images1 = upload_file('images1','../assets/images/');
         $images2 = upload_file('images2','../assets/images/');
         $addproduct = addproduct($name,$price,$sale,$images,$images1,$images2,$view,$description,$idcategory);
-        if($addproduct == 1) $kq = "Thành công"; else $kq = $addproduct;
+        if($addproduct == 1) header("location: $ROOT_ADMIN/?show=showproducts");
+         else $kq = $addproduct;
     }else if(isset($btn_category)){
         $addcategorys = addcategory($name);
-        if($addcategorys == 1) $kq = "Thành công"; else $kq = $addcategorys;
+        if($addcategorys == 1) header("location: $ROOT_ADMIN/?show"); else $kq = $addcategorys;
     }
 
     $view = "add.php";
 }
 
-
+// UPDATE PRODUCT
 if(isset($_GET['edit'])){
     if(isset($_POST['updateProduct'])){
       $images = upload_file('images','../assets/images/');
@@ -38,7 +46,7 @@ if(isset($_GET['edit'])){
         }
       $updateProduct2 = updateProduct($name,$price,$sale,$images,$images1,$images2,$description,$idcategory,$idsp);
       if($updateProduct2 == 1) {
-          header("location: $ROOT_ADMIN");
+          header("location: $ROOT_ADMIN?show=showproducts");
       }else{
           $kq = "Thất bại";
       }
@@ -53,7 +61,7 @@ if(isset($_GET['edit'])){
     }
     $view = "edit.php";
 }
-
+// UPDATE CATEGORYS
 if(isset($_GET['edit'])){
     if(isset($_POST['btn_category'])){
         $updateCategory2 = updateCategory($name,$id_cate);
@@ -65,6 +73,21 @@ if(isset($_GET['edit'])){
            
     }
     $view = 'edit.php';
+}
+
+// delete product
+if(isset($_GET['delete_product'])){
+    $id_delete = $_GET['delete_product'];
+    deleteProduct($id_delete);
+  
+    $view = "show.php";
+}
+if(isset($_GET['delete_cate'])){
+    $id_cate = $_GET['delete_cate'];
+    deleteCategory($id_cate);
+    header("location: $ROOT_ADMIN/?show");
+  
+    $view = "show.php";
 }
 
 

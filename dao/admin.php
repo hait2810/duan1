@@ -12,7 +12,7 @@ function showcategorys() {
     return pdo_query($sql);
 }
 function showproducts() {
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM products ORDER BY id DESC";
     return pdo_query($sql);
 }
 function showDetailProduct($id) {
@@ -31,4 +31,13 @@ function showDetailCategory($id) {
     $sql = "SELECT * FROM categorys WHERE id=?";
     return pdo_query($sql, $id);
 }
+function deleteProduct($id){
+    $sql = "DELETE FROM products WHERE id=?";
+    return pdo_execute($sql,$id);
+}
+function deleteCategory($id){
+    $sql = "DELETE FROM categorys WHERE id=?";
+    return pdo_execute($sql,$id);
+}
+
 ?>

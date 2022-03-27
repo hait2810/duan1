@@ -1,8 +1,10 @@
 <?php 
-
 include "./dao/db.php";
 include "./global.php";
 include "./dao/account.php";
+include './dao/showhome.php';
+
+
 $view = "home.php";
 extract($_REQUEST);
 

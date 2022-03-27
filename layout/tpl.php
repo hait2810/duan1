@@ -32,8 +32,13 @@
                     </li>
                     <li><a href="">Sản phẩm</a>
                      <ul class="subnav">
-                         <li><a href="">AF1</a></li>
-                         <li><a href="">VANS</a></li>
+                        <?php 
+                        $listCategorys = showCategoryHome();
+                        foreach ($listCategorys as $key => $value) {
+                            echo ' <li><a href="">'.$value['name'].'</a></li>
+                           ';
+                        }
+                        ?>
                      </ul>
                     </li>
                     <li><a href="">Sale</a></li>

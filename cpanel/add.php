@@ -45,7 +45,9 @@ if($_GET['add'] == 'addproduct'){
   
 </select>
 <div class="mb-3">
-  <h5><?php echo $kq; ?></h5>
+  <h5><?php if(isset($kq)) {
+    echo $kq;
+  } ?></h5>
 </div>
 <button type="submit" name="addproduct" class="btn btn-primary">Thêm sản phẩm</button>
 <?php 

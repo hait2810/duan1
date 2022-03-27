@@ -1,20 +1,21 @@
 <?php 
 if($_GET['show'] == 'showproducts') {
     ?>
-    <?php 
-    $listproduct = showproducts();
-    foreach ($listproduct as $key => $value) {
-        echo '<div class="row">
+   
+       
+        <div class="row">
         <div class="col-12">
           <div class="card my-4">
+         
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Authors table</h6>
+                <h6 class="text-white text-capitalize ps-3"> <a href="<?=$ROOT_ADMIN?>?add=addproduct">Thêm sản phẩm</a></h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
+                
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
@@ -28,6 +29,11 @@ if($_GET['show'] == 'showproducts') {
                     </tr>
                   </thead>
                   <tbody>
+                  <?php 
+   
+   $listproduct = showproducts();
+   foreach ($listproduct as $key => $value) {
+       echo '
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -62,13 +68,15 @@ if($_GET['show'] == 'showproducts') {
                         </a>
                       </td>
                       <td class="align-middle text-center">
-                        <a href="'.$ROOT_ADMIN.'//delete?id='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        <a href="'.$ROOT_ADMIN.'/?show=showproducts&delete_product='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                           Delete
                         </a>
                       </td>
                     </tr>
                 
-                  
+                    ';
+                  }
+                  ?>
                  
                     
                  
@@ -78,9 +86,7 @@ if($_GET['show'] == 'showproducts') {
             </div>
           </div>
         </div>
-      </div>';
-    }
-    ?>
+      </div>
 <?php 
 
 }else{
@@ -90,7 +96,7 @@ if($_GET['show'] == 'showproducts') {
       <div class="card my-4">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">Authors table</h6>
+            <h6 class="text-white text-capitalize ps-3"><a href="<?=$ROOT_ADMIN?>?add=">Thêm danh mục</a></h6>
           </div>
         </div>
         <div class="card-body px-0 pb-2">
@@ -113,7 +119,7 @@ if($_GET['show'] == 'showproducts') {
                
                
                   <td class="align-middle">
-                    <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                    <span class="text-secondary text-xs font-weight-bold">'.$value['name'].'</span>
                   </td>
                
                   <td class="align-middle">
@@ -122,7 +128,7 @@ if($_GET['show'] == 'showproducts') {
                     </a>
                   </td>
                   <td class="align-middle ">
-                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="'.$ROOT_ADMIN.'?show&delete_cate='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                       Delete
                     </a>
                   </td>
