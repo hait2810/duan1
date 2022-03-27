@@ -19,17 +19,20 @@ if($_GET['edit'] == 'editproduct'){
   <label for="formFile" class="form-label">Ảnh (AVATAR)</label>
   <input class="form-control" type="file" id="images" name="images">
   <img width="50px" src="../assets/images/<?=$showDetailProduct[0]['images']?>" alt="">
+  <input type="hidden" name="old_img" value="<?=$showDetailProduct[0]['images']?>" id="">
   
 </div>
 <div class="mb-3">
   <label for="formFile" class="form-label">Ảnh 1</label>
   <input class="form-control" type="file" id="images1" name="images1">
   <img width="50px" src="../assets/images/<?=$showDetailProduct[0]['images1']?>" alt="">
+  <input type="hidden" name="old_imga" value="<?=$showDetailProduct[0]['images1']?>" id="">
 </div>
 <div class="mb-3">
   <label for="formFile" class="form-label">Ảnh 2</label>
   <input class="form-control" type="file" id="images2" name="images2">
   <img width="50px" src="../assets/images/<?=$showDetailProduct[0]['images2']?>" alt="">
+  <input type="hidden" name="old_imgb" value="<?=$showDetailProduct[0]['images2']?>" id="">
 </div>
 <div class="mb-3">
  
@@ -46,7 +49,7 @@ if($_GET['edit'] == 'editproduct'){
   foreach ($listdm as $key => $value) {
      ?>
      <option 
-     <?php if($value['id'] == $showDetailProduct[0]['id']):?>
+     <?php if($value['id'] == $showDetailProduct[0]['idcategory']):?>
         selected
         <?php endif ?>
      value="<?=$value['id']?>"><?=$value['name']?></option>
@@ -57,7 +60,8 @@ if($_GET['edit'] == 'editproduct'){
 <div class="mb-3">
   <h5><?php echo $kq; ?></h5>
 </div>
-<button type="submit" name="editproduct" class="btn btn-primary">Sửa sản phẩm</button>
+<button type="submit" name="updateProduct" class="btn btn-primary">Sửa sản phẩm</button>
+</form>
 <?php 
 }else {
     ?>

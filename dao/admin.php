@@ -19,5 +19,8 @@ function showDetailProduct($id) {
         $sql = "SELECT * FROM products WHERE id=?";
         return pdo_query($sql,$id);
 }
-function updateProduct($name,)
+function updateProduct($name,$price,$sale,$images,$images1,$images2,$description,$idcategory,$idsp){
+        $sql = "UPDATE products SET name=?,price=?,sale=?,images=?,images1=?,images2=?,description=?,idcategory=? WHERE id=?";
+        return pdo_execute($sql,$name,$price,$sale,$images,$images1,$images2,$description,$idcategory,$idsp);
+}
 ?>
