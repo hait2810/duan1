@@ -46,5 +46,18 @@ else if(isset($register)) {
 }
 
 
+
+if(isset($_GET['detail'])) {
+
+    $id_detail = $_GET['detail'];
+    $showDetailProduct1 = showDetailProduct($id_detail);
+    $view = $showDetailProduct1[0]['view'] + 1;
+ 
+    updateView($view,$id_detail);
+    $similarProduct = similarProduct($showDetailProduct1[0]['idcategory']);
+   
+    $view = "detail.php";
+}
+
 include "./layout/tpl.php";
 ?>

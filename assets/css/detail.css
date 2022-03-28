@@ -80,6 +80,12 @@ a{
     font-weight: bold;
 }
 .d-similar-products{
-    display: grid;
+    display: flex;
     grid-template-columns: auto auto auto auto;
+    gap: 20px;
+}
+
+.d-title-heading {
+    border: 1px solid black;
+    padding: 20px;
 }

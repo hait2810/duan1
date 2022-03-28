@@ -58,7 +58,9 @@ if($_GET['edit'] == 'editproduct'){
   
 </select>
 <div class="mb-3">
-  <h5><?php echo $kq; ?></h5>
+<h5><?php if(isset($kq)) {
+    echo $kq;
+  } ?></h5>
 </div>
 <button type="submit" name="updateProduct" class="btn btn-primary">Sửa sản phẩm</button>
 </form>
@@ -72,7 +74,9 @@ if($_GET['edit'] == 'editproduct'){
   <input type="text" class="form-control" id="name" value="<?=$showDetailCate[0]['name']?>" name="name" placeholder="Tên danh mục">
 </div>
 <div class="mb-3">
-  <h5><?php echo $kq; ?></h5>
+  <h5><?php if(isset($kq)) {
+    echo $kq;
+  } ?></h5>
 </div>
 <button type="submit" name="btn_category" class="btn btn-primary">Sửa danh mục</button>
 </form>

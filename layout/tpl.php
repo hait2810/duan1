@@ -20,7 +20,7 @@
         </div>
         <div class="header-menu">
             <div class="logo">
-                <img src="./assets/logo/image 2.png" alt="">
+                <a href="<?=$ROOT?>"><img src="./assets/logo/image 2.png" alt=""></a>
             </div>
             <nav class="menu">
                 <ul>
@@ -59,7 +59,7 @@
                     <div class="logo">
                         <?php 
                         
-                        if($_SESSION['email']){
+                        if(isset($_SESSION['email'])){
                             echo ' <h3>Chào, '.$_SESSION['fullname'].' </h3> <br>
                             <a href="?logout">Đăng xuất</a>';
                         }else{

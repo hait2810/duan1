@@ -10,10 +10,12 @@
                     <img src="'.$ROOT.'/assets/images/'.$value['images'].'" alt="">
                 </div>
                 <div class="order">
-                    <button><a href="">XEM CHI TIẾT</a></button>
+                    <button><a href="'.$ROOT.'?detail='.$value['id'].'">XEM CHI TIẾT</a></button>
+                    
                 </div>
             </div>
             <h3>'.$value['name'].'</h3>
+            <h5 class="views">'.$value['view'].'  <img src="'.$ROOT.'/assets/icon/eye.png" width="20px" alt=""></h5>
             <h2>'.number_format($value['price']).' ₫</h2>
 
         </div>
