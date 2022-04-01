@@ -5,11 +5,16 @@
       <div class="c-products">
          
        
-               <div class="c-product">
+            <?php 
+            
+            foreach ($search as $key => $value) {
+                echo '   <div class="c-product">
                 <img src="'.$ROOT.'/assets/images/'.$value['images'].'" alt="">
                     <h4 class="name-product">'.$value['name'].'</h4>
                     <h3 class="price">'.number_format($value['price']).' ₫</h3>
-            </div>
+            </div>';
+            }
+            ?>
         
          
       </div>

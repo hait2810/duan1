@@ -25,7 +25,7 @@ function detailCategorys($idcategory) {
     return pdo_query($sql,$idcategory);
 }
 function searchProducts($key) {
-    $sql = "SELECT * FROM products LIKE ?";
+    $sql = "SELECT * FROM products WHERE name LIKE ?";
     return pdo_query($sql,$key);
 }
 ?>

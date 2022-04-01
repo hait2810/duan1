@@ -65,9 +65,10 @@ if(isset($_GET['category'])) {
     $view = "detailproducts.php";
 }
 if(isset($_GET['key'])){
-    $keya = $_GET['key'];
+    $key = '%'.$_GET['key'].'%';
+   
     $search = searchProducts($key);
-    print_r($search);
+   
     $view = "search.php";
     
 }
