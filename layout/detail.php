@@ -14,13 +14,26 @@
               <div class="d-title-heading">
                     <h3 class="d-name-product distance"><?=$showDetailProduct1[0]['name']?></h3>
                     <p class="code-product distance">MÃ SP: BLV<?=$showDetailProduct1[0]['id']?></p>
-                    <h3 class="price distance"><?=number_format($showDetailProduct1[0]['price'])?> ₫</h3>
+                    <div class="prices">
+                        <?php   
+                        $ai = intval($showDetailProduct1[0]['sale']);
+                       
+                       $percent = ($ai/100)*$showDetailProduct1[0]['price'];
+                        $pricenew = $showDetailProduct1[0]['price'] - $percent;
+                        ?>
+                    <h3 class="price distance"><?=number_format($pricenew)?> ₫</h3>
+                    <del><?=number_format($showDetailProduct1[0]['price'])?> ₫</del>
+                    </div>
                     <div class="size distance">
                         <h3>Kích cỡ:
 
                             <form action="">
-                                <select name="" id="">
-                                    <option value="">41</option>
+                                <select name="sizes" id="">
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
                                 </select>
                             </form>
                         </h3>
