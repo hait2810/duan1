@@ -28,4 +28,12 @@ function searchProducts($key) {
     $sql = "SELECT * FROM products WHERE name LIKE ?";
     return pdo_query($sql,$key);
 }
+function addCmt($content,$iduser,$idproduct) {
+    $sql = "INSERT INTO comments(content,iduser,idproduct) VALUES(?,?,?)";
+    return pdo_execute($sql,$content,$iduser,$idproduct);
+}
+function showCmt($idproduct) {
+    $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=?";
+    return pdo_query($sql,$idproduct);
+}
 ?>

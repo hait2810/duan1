@@ -17,6 +17,7 @@ if(isset($logout)) {
         $login = login($email,$password);
        
         if($login['email']) {
+            $_SESSION['id'] = $login['id'];
             $_SESSION['email'] = $login['email'];
             $_SESSION['roleId'] = $login['roleId'];
             $_SESSION['fullname'] = $login['fullname'];
@@ -55,7 +56,13 @@ if(isset($_GET['detail'])) {
  
     updateView($view,$id_detail);
     $similarProduct = similarProduct($showDetailProduct1[0]['idcategory']);
-   
+    if(isset($_POST['btn_cmt'])) {
+       $iduser =  $_SESSION['id'];
+      
+        
+     addCmt($content,$iduser,$detail);
+       
+    }
     $view = "detail.php";
 }
 if(isset($_GET['category'])) {

@@ -89,3 +89,30 @@ a{
     border: 1px solid black;
     padding: 20px;
 }
+.comments {
+    width: 1055px;
+    height: 300px;
+    margin: 50px auto;
+    border-top:1px solid #c9ae63;
+    overflow: auto;
+
+}
+.comments .item-cmt {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: #32323242;
+}
+.comments .content-cmt i, p {
+    font-weight:normal;
+    font-size: 12px;
+}
+.comments .content-cmt {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.comments button {
+    padding: 8px 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.461);
+}

@@ -51,6 +51,39 @@
                     </div>
               </div>
           </div>
+
+          <div class="comments">
+              <h3>Bình luận:</h3>
+             <?php if(isset($_SESSION['id'])) {
+                 ?>
+                  <form action="?detail=<?=$detail?>" method="POST">
+                  <textarea name="content" id="" cols="50" rows="3"></textarea> <br>
+                  <button name="btn_cmt">Gửi bình luận</button>
+              </form>
+          <?php   }else{
+              echo "Bạn cần đăng nhập để bình luận";
+          }
+          
+          ?>
+            <?php 
+            $listCmt = showCmt($detail);
+            foreach ($listCmt as $key => $value) {
+                echo ' <div class="item-cmt">
+                <div class="logo-user">
+                    <img src="'.$ROOT.'/assets/icon/users.png"    width="60px" alt="">
+                </div>
+                <div class="content-cmt">
+                    <h5>'.$value['fullname'].' - <i>'.$value['time'].'</i></h5>
+                    <p>'.$value['content'].'</p>
+                </div>
+         </div>';
+            }
+            ?>
+           
+        
+           
+            
+          </div>
          <h3 class="d-similar-h3">SẢN PHẨM CÙNG DANH MỤC:</h3>
          <div class="d-similar-products">
            
