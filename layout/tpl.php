@@ -24,7 +24,7 @@
             </div>
             <nav class="menu">
                 <ul>
-                    <li class="hot-ne"><a href="">SẢN PHẨM HOT</a>
+                    <li class="hot-ne"><a href="?hot">SẢN PHẨM HOT</a>
                     
                    <ul class="logo-hot">
                        <li><img src="./assets/icon/image 7.png" alt=""> </li>
@@ -41,7 +41,7 @@
                         ?>
                      </ul>
                     </li>
-                    <li><a href="">Sale</a></li>
+                    <li><a href="?sale">Sale</a></li>
                     <li><a href="">Liên hệ</a></li>
                    
                 </ul>

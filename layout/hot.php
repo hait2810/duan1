@@ -1,8 +1,8 @@
-<h3 class="title">Tìm kiếm sản phẩm: <?php echo $kq; ?></h3>
+<h3 class="title">SẢN PHẨM HOT</h3>
 <div class="products">
     <?php
-    
-    foreach($search as $a => $value) {
+    $productHot = productHot();
+    foreach ($productHot as $key => $value) {
        echo '
         <div class="product">
             <div class="img-order">

@@ -73,12 +73,22 @@ if(isset($_GET['category'])) {
 }
 if(isset($_GET['key'])){
     $key = '%'.$_GET['key'].'%';
-   
+    $kq = $_GET['key'];
     $search = searchProducts($key);
    
     $view = "search.php";
     
 }
 
+if(isset($_GET['sale'])) {
+    $productSale = productSale();
+
+    $view = "sale.php";
+}
+
+if(isset($_GET['hot'])) {
+    
+    $view = "hot.php";
+}
 include "./layout/tpl.php";
 ?>

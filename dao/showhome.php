@@ -36,4 +36,12 @@ function showCmt($idproduct) {
     $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=?";
     return pdo_query($sql,$idproduct);
 }
+function productSale() {
+    $sql = "SELECT * FROM products WHERE sale>0";
+    return pdo_query($sql);
+}
+function productHot() {
+    $sql = "SELECT * FROM products ORDER BY view DESC LIMIT 6";
+    return pdo_query($sql);
+}
 ?>
