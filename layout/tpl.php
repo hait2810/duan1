@@ -35,7 +35,7 @@
                         <?php 
                         $listCategorys = showCategoryHome();
                         foreach ($listCategorys as $key => $value) {
-                            echo ' <li><a href="">'.$value['name'].'</a></li>
+                            echo ' <li><a href="?category='.$value['id'].'">'.$value['name'].'</a></li>
                            ';
                         }
                         ?>
@@ -47,9 +47,9 @@
                 </ul>
             </nav>
             <div class="left">
-                <form action="">
+                <form action="?search=">
                     <div class="input">
-                        <input type="text" placeholder="Bạn cần gì..." name="" id="">
+                        <input type="text" placeholder="Bạn cần gì..." name="key" id="key">
                     </div>
                     <div class="icon">
                         <img src="./assets/icon/search.png" width="18px" alt="">

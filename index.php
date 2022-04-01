@@ -58,6 +58,19 @@ if(isset($_GET['detail'])) {
    
     $view = "detail.php";
 }
+if(isset($_GET['category'])) {
+    $idcategory = $_GET['category'];
+    $showCategory = detailCategorys($idcategory);
+   
+    $view = "detailproducts.php";
+}
+if(isset($_GET['key'])){
+    $keya = $_GET['key'];
+    $search = searchProducts($key);
+    print_r($search);
+    $view = "search.php";
+    
+}
 
 include "./layout/tpl.php";
 ?>

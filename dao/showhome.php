@@ -20,4 +20,12 @@ function similarProduct($idcategory) {
     $sql = "SELECT * FROM products  WHERE idcategory=? LIMIT 4";
     return pdo_query($sql,$idcategory);
 }
+function detailCategorys($idcategory) {
+    $sql = "SELECT * FROM products WHERE idcategory=?";
+    return pdo_query($sql,$idcategory);
+}
+function searchProducts($key) {
+    $sql = "SELECT * FROM products LIKE ?";
+    return pdo_query($sql,$key);
+}
 ?>
