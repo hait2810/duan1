@@ -40,5 +40,20 @@ function deleteCategory($id){
     $sql = "DELETE FROM categorys WHERE id=?";
     return pdo_execute($sql,$id);
 }
-
+function showCart() {
+    $sql = "SELECT * FROM orders"; 
+    return pdo_query($sql);
+}
+function showInfoCart($idcart) {
+    $sql = "SELECT * FROM orders WHERE id=?";
+    return pdo_query($sql,$idcart);
+}
+function DetailCart($idcart) {
+    $sql = "SELECT * FROM order_detail WHERE order_id=?";
+    return pdo_query($sql,$idcart);
+}
+function DeleteCart($id) {
+    $sql = "DELETE FROM orders WHERE id=?";
+    return pdo_execute($sql,$id);
+}
 ?>

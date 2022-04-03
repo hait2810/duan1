@@ -15,6 +15,7 @@ if(!isset($_SESSION['roleId'])){
 
 // ADD CATEGORY + PRODUCTS
 
+
 if(isset($_GET['add'])){
     if(isset($addproduct)){
         $images = upload_file('images','../assets/images/');
@@ -91,6 +92,18 @@ if(isset($_GET['delete_cate'])){
     header("location: $ROOT_ADMIN/?show");
   
     $view = "show.php";
+}
+
+if(isset($_GET['detailcart'])){
+    $idcart = $_GET['detailcart'];
+    $DetailCart = (DetailCart($idcart));
+    $infocart = showInfoCart($idcart);
+  
+    $view = "detailcart.php";
+    if(isset($_GET['deletecart'])){
+            DeleteCart($_GET['deletecart']);
+            header("location: ?show=showcart");
+    }
 }
 
 

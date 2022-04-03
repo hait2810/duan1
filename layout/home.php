@@ -7,7 +7,7 @@
         <div class="product">
             <div class="img-order">
                 <div class="img-product">
-                    <img src="'.$ROOT.'/assets/images/'.$value['images'].'" alt="">
+                    <a href="'.$ROOT.'?detail='.$value['id'].'"><img src="'.$ROOT.'/assets/images/'.$value['images'].'" alt=""> </a>
                 </div>
                 <div class="order">
                     <button><a href="'.$ROOT.'?detail='.$value['id'].'">XEM CHI TIẾT</a></button>

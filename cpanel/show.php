@@ -1,9 +1,7 @@
 <?php 
-if(isset($_GET['show']) == 'showproducts') {
+if($_GET['show'] == 'showproducts') {
     ?>
-   
-       
-        <div class="row">
+  <div class="row">
         <div class="col-12">
           <div class="card my-4">
          
@@ -89,7 +87,7 @@ if(isset($_GET['show']) == 'showproducts') {
       </div>
 <?php 
 
-}else{
+}else if($_GET['show'] == 'showcategory'){
     ?>
     <div class="row">
     <div class="col-12">
@@ -149,6 +147,65 @@ if(isset($_GET['show']) == 'showproducts') {
     </div>
   </div>
   
+<?php }else if($_GET['show'] == "showcart"){
+  ?>
+<div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3"><a href="<?=$ROOT_ADMIN?>?add=">Thêm danh mục</a></h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CODE ORDERS</th>
+                  <th class="text-secondary opacity-7">Detail cart</th>
+                  <th class="text-secondary opacity-7">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $listCart = showCart();
+                foreach ($listCart as $key => $value) {
+                  echo '
+                  <tr>
+               
+               
+               
+                  <td class="align-middle">
+                    <span class="text-secondary text-xs font-weight-bold">CODE: '.$value['id'].'</span>
+                  </td>
+               
+                  <td class="align-middle">
+                    <a href="'.$ROOT_ADMIN.'?detailcart='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                      Detail cart
+                    </a>
+                  </td>
+                  <td class="align-middle ">
+                    <a href="'.$ROOT_ADMIN.'?detailcart&deletecart='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                  ';
+                }
+                ?>
+            
+              
+             
+                
+             
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <?php }
 
 ?>

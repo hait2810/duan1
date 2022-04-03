@@ -191,9 +191,10 @@ if(isset($_GET['cart'])) {
     $amount = ($value['price'] - $prices1)*$_POST['quantity'][$value['id']]; // giá - phần trăm
     addDetailOrder($order,$value['id'],$_POST['quantity'][$value['id']],$amount);
     unset($_SESSION['carts']);
-    echo 'Cảm ơn bạn đã mua hàng.<a href="?cart">Tiếp tục mua hàng</a>';
-    exit;
+    
    }
+   echo 'Cảm ơn bạn đã mua hàng.<a href="'.$ROOT.'">Tiếp tục mua hàng</a>';
+    exit;
    
 
   
@@ -202,4 +203,5 @@ if(isset($_GET['cart'])) {
     }
     $view = "cart.php";
 }
+
 include "./layout/tpl.php";
