@@ -49,10 +49,10 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="<?=$ROOT_ADMIN?>?show=showproducts">
+      <li class="nav-item">
+          <a class="nav-link text-white " href="<?=$ROOT_ADMIN?>?show=showproducts">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
+              <i class="material-icons opacity-10">table_view</i>
             </div>
             <span class="nav-link-text ms-1">Danh sách sản phẩm</span>
           </a>
@@ -66,11 +66,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/billing.html">
+          <a class="nav-link text-white " href="<?=$ROOT_ADMIN?>?show=showcart">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Đơn háng</span>
           </a>
         </li>
         <li class="nav-item">

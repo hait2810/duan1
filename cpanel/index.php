@@ -2,7 +2,7 @@
 include "../dao/db.php";
 include "../global.php";
 include "../dao/admin.php";
-$view = "show.php";
+$view = "vidieu.php";
 extract($_REQUEST);
 
 // check quyền
@@ -14,7 +14,9 @@ if(!isset($_SESSION['roleId'])){
    }
 
 // ADD CATEGORY + PRODUCTS
-
+if(isset($_GET['show'])){
+    $view = "show.php";
+}
 
 if(isset($_GET['add'])){
     if(isset($addproduct)){
