@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/account.css">
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/detail.css">
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/detail-category.css">
+    <link rel="stylesheet" href="<?= $ROOT?>/assets/css/cart.css">
 </head>
 <body>
     <header>
@@ -71,7 +72,7 @@
                     
                 </div>
                 <div class="cart">
-                    <a href=""><img src="./assets/icon/bags.png" width="30px" alt=""></a>
+                    <a href="?cart"><img src="./assets/icon/bags.png" width="30px" alt=""></a>
                 </div>
             </div>
 

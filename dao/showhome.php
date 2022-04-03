@@ -44,4 +44,16 @@ function productHot() {
     $sql = "SELECT * FROM products ORDER BY view DESC LIMIT 6";
     return pdo_query($sql);
 }
+function getProductbyId($id){
+    $sql = "SELECT * FROM products WHERE `id` IN ($id)";
+    return pdo_query($sql);
+}
+function addOrder($name,$phone,$address,$note,$total) {
+    $sql = "INSERT INTO orders(name,phone,address,note,total) VALUES(?,?,?,?,?)";
+    return pdo_executes($sql,$name,$phone,$address,$note,$total);
+}
+function addDetailOrder($order_id,$product_id,$quantity,$price) {
+   $sql = "INSERT INTO order_detail(order_id,product_id,quantity,price) VALUES(?,?,?,?)";
+   return pdo_execute($sql,$order_id,$product_id,$quantity,$price);
+}
 ?>

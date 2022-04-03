@@ -21,6 +21,9 @@
         </div>
        ';
     }
+    if(empty($search)){
+        echo " Không tìm thấy sản phẩm";
+    }
     ?>
 
 </div>

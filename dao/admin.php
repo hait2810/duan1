@@ -2,6 +2,7 @@
 function addcategory($name) {
     $sql = "INSERT INTO categorys(name) VALUES(?)";
     return pdo_execute($sql,$name);
+    
 }
 function addproduct($name,$price,$sale,$images,$images1,$images2,$view,$description,$idcategory){
     $sql = "INSERT INTO products(name,price,sale,images,images1,images2,view,description,idcategory) VALUES(?,?,?,?,?,?,?,?,?)";

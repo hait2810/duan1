@@ -1,4 +1,4 @@
-<h3 class="title">HÀNG MỚI VỀ</h3>
+<h3 class="title">DANH MỤC</h3>
 <div class="products">
     <?php
     

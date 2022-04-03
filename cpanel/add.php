@@ -59,7 +59,9 @@ if($_GET['add'] == 'addproduct'){
   <input type="text" class="form-control" id="name" name="name" placeholder="Tên danh mục">
 </div>
 <div class="mb-3">
-  <h5><?php echo $kq; ?></h5>
+  <h5><?php if(isset($kq)){
+    echo $kq;
+  } ?></h5>
 </div>
 <button type="submit" name="btn_category" class="btn btn-primary">Thêm danh mục</button>
 </form>

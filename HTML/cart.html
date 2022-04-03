@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="./assets/css/homepage.css">
-   <link rel="stylesheet" href="./assets/css/account.css">
+    <link rel="stylesheet" href="./assets/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -68,33 +69,100 @@
         <img src="./assets/banner/banner_product_noibat.webp" alt="">
     </section>
     <main>
-        <div class="login-link">
-            <h5 class="l-homepage"><a href="./index.html">Trang chủ</a></h5><h5 class="d-account"><a href="">Tài khoản</a></p>
-        </div>
-        <div class="account-content">
-            <div class="acc-banner">
-                <img src="./assets/banner/image 17.png" width="650px" alt="">
+        <div class="container">
+            <form action="">
+            <div class="carts">
+                <a href="">Trang chủ</a>
+                <h4>Giỏ hàng</h4>
+                
+                <table border="1">
+                         <thead>
+                             <tr>
+                                 <th>#</th>
+                                 <th>Tên sản phẩm</th>
+                                 <th>Ảnh sản phẩm</th>
+                                 <th>Đơn giá</th>
+                                 <th>Số lượng</th>
+                                 <th>Thành tiền</th>
+                                 <th>Xoá</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td  class="product-center">1</td>
+                                 <td class="product-center">Tên sản phẩm</td>
+                                 <td class="product-center"><img src="./assets/images/3.png" width="80px" alt=""></td>
+                                 <td class="product-center">Đơn giá</td>
+                                 <td class="product-center"><input type="number" name="" id=""></td>
+                                 <td class="product-center">132.132</td>
+                                 <td class="product-center"><button><img src="../assets/icon/delete.png" width="50px" alt=""></button></td>
+                             </tr>
+                             
+                          
+                         </tbody>
+                         <tfoot>
+                             <tr>
+                                 <td  class="product-center"></td>
+                                 <td class="product-center">Tổng tiền</td>
+                                 <td class="product-center"></td>
+                                 <td class="product-center"></td>
+                                 <td class="product-center"></td>
+                                 <td class="product-center">132.132</td>
+                                 <td class="product-center"></td>
+                             </tr>
+                         </tfoot>
+                </table>
+                <button class="updatecart">Cập nhật</button>
+                <div class="info-cart">
+                   
+                        <label for="">Người nhận:</label>
+                        
+                        <input type="text" name="name" id="name">
+
+                        <label for="">Số điện thoại:</label>
+                        <input type="text" name="phone" id="phone">
+                        <label for="">Địa chỉ:</label>
+                        <input type="text" name="address" id="address">
+                        <label for="">Ghi chú:</label>
+                       <textarea name="note" id="note" cols="30" rows="10"></textarea>
+                        <h5 class="error"></h5>
+                       <button class="btn_order">Đặt hàng</button>
+                   
+                </div>
             </div>
-            <div class="acc-form">
-                <h3>ĐĂNG NHẬP</h3>
-                <p>Nếu bạn đã có tài khoản, hãy đăng nhập để tích lũy điểm thành
-                    viên và nhận được những ưu đãi tốt hơn!
-                    </p>
-                <form action="">
-                  <div class="acc-emaill">
-                    <label for="">Email *</label>
-                    <input type="email" name="email" id="email">
-                  </div>
-                  <div class="acc-password">
-                    <label for="">Password *</label>
-                    <input type="password" name="password" id="password">
-                  </div>
-                  <button>ĐĂNG NHẬP</button>
-                  <a class="register" href="">TẠO TÀI KHOẢN</a>
-                </form>
-            </div>
+          
         </div>
-      
+    </form>
+        <script>
+           
+            var btn_order = document.querySelector(".btn_order");
+            btn_order.addEventListener("click", (e) => {
+                e.preventDefault();
+                var phoneformat = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                var phone = document.querySelector("#phone").value;
+                var name = document.querySelector("#name").value;
+                var address = document.querySelector("#address").value;
+               
+                if(phoneformat.test(phone) == false) {
+                    document.querySelector(".error").innerHTML = "Số điện thoại không đúng định dạng";
+                    return;
+                }else{
+                    document.querySelector(".error").innerHTML = "";
+                }
+                if(!name) {
+                    document.querySelector(".error").innerHTML = "Tên không được để trống";
+                    return;
+                }else{
+                    document.querySelector(".error").innerHTML = "";
+                }
+                if(!address) {
+                    document.querySelector(".error").innerHTML = "Địa chỉ không được để trống";
+                    return;
+                }else{
+                    document.querySelector(".error").innerHTML = "";
+                }
+            })
+        </script>
     </main>
     <section class="footer-banner">
         <img src="./assets/banner/lambanner-thiet-ke-banner-nhu-nike.jpg" alt="">

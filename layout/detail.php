@@ -1,3 +1,4 @@
+<form method="POST">
 <div class="detail-content">
           <div class="detail-link">
               <h5 class="d-homepage"><a href="<?=$ROOT?>">Trang chủ</a></h5><h5 class="d-namecate"><a href="?detail=<?=$showDetailProduct1[0]['id']?>">Chi tiết sản phẩm</a></p>
@@ -27,7 +28,7 @@
                     <div class="size distance">
                         <h3>Kích cỡ:
 
-                            <form action="">
+                          
                                 <select name="sizes" id="">
                                     <option value="39">39</option>
                                     <option value="40">40</option>
@@ -35,7 +36,7 @@
                                     <option value="42">42</option>
                                     <option value="43">43</option>
                                 </select>
-                            </form>
+                          
                         </h3>
                      
                     </div>
@@ -43,11 +44,12 @@
                         <img src="./assets/icon/size.png" alt=""> <h5><a href="./assets/icon/b_ng_size_owen_2_1_.jpg">Hướng dẫn chọn size</a></h5>
                     </div>
                     <div class="d-order distance">
-                      <form action="">
+                    
                            <h5>Số lượng :</h5>
-                          <input type="number" value="1" name="" id="">
-                          <button>Thêm vào giỏ hàng</button>
-                      </form>
+                          <input type="number" value="1" name="quantity" id="quantity">
+                           
+                          <button name="addcart" class="addcart">Thêm vào giỏ hàng</button>
+                      
                     </div>
                     <div class="description">
                         <h3>Mô tả:</h3>
@@ -69,10 +71,10 @@
               <h3>Bình luận:</h3>
              <?php if(isset($_SESSION['id'])) {
                  ?>
-                  <form action="?detail=<?=$detail?>" method="POST">
+                  
                   <textarea name="content" id="" cols="50" rows="3"></textarea> <br>
                   <button name="btn_cmt">Gửi bình luận</button>
-              </form>
+              
           <?php   }else{
               echo "Bạn cần đăng nhập để bình luận";
           }
@@ -113,13 +115,24 @@
             ?>
          </div>
       </div>
+      </form>
       <script>
+         
+          var addcart = document.querySelector(".addcart");
+          addcart.onclick = function() {
+            var quantity = document.querySelector("#quantity").value;
+            if(quantity < 1) {
+              alert("Số lượng phải lớn hơn 1");
+              return false;
+          }
+          }
+          
           var btns = document.querySelectorAll(".btn");
           var anhgoc = document.querySelector(".anhgoc");
           btns.forEach((btnElement) => {
               const src = btnElement.src;
               btnElement.addEventListener("click", () => {
-                  console.log(src);
+                
                   anhgoc.src = src;
               })
           })

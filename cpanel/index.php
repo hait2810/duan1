@@ -6,10 +6,12 @@ $view = "show.php";
 extract($_REQUEST);
 
 // check quyền
-if($_SESSION['roleId'] != 1){
+if(!isset($_SESSION['roleId'])){
+    exit("Ban can phai dang nhap");
+}else if($_SESSION['roleId'] != 1) {
     echo "Chỉ admin mới có quyền truy cập";
     exit;
-}
+   }
 
 // ADD CATEGORY + PRODUCTS
 
@@ -23,6 +25,7 @@ if(isset($_GET['add'])){
          else $kq = $addproduct;
     }else if(isset($btn_category)){
         $addcategorys = addcategory($name);
+     
         if($addcategorys == 1) header("location: $ROOT_ADMIN/?show"); else $kq = $addcategorys;
     }
 

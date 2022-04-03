@@ -1,5 +1,5 @@
 <?php 
-if($_GET['show'] == 'showproducts') {
+if(isset($_GET['show']) == 'showproducts') {
     ?>
    
        
