@@ -33,7 +33,7 @@ function addCmt($content,$iduser,$idproduct) {
     return pdo_execute($sql,$content,$iduser,$idproduct);
 }
 function showCmt($idproduct) {
-    $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=?";
+    $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=? ORDER BY time DESC   ";
     return pdo_query($sql,$idproduct);
 }
 function productSale() {
