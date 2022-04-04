@@ -56,4 +56,8 @@ function DeleteCart($id) {
     $sql = "DELETE FROM orders WHERE id=?";
     return pdo_execute($sql,$id);
 }
+function listCMT() {
+    $sql  = "SELECT * FROM comments";
+    return pdo_query($sql);
+}
 ?>

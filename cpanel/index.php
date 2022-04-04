@@ -7,7 +7,7 @@ extract($_REQUEST);
 
 // check quyền
 if(!isset($_SESSION['roleId'])){
-    exit("Ban can phai dang nhap");
+    header("location: $ROOT?login");
 }else if($_SESSION['roleId'] != 1) {
     echo "Chỉ admin mới có quyền truy cập";
     exit;
@@ -106,6 +106,12 @@ if(isset($_GET['detailcart'])){
             DeleteCart($_GET['deletecart']);
             header("location: ?show=showcart");
     }
+}
+
+
+if(isset($_GET['comments'])) {
+    
+    $view = "comment.php";
 }
 
 

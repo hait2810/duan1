@@ -1,6 +1,6 @@
 <?php 
 function showProductNew() {
-    $sql = "SELECT * FROM products LIMIT 8";
+    $sql = "SELECT * FROM products LIMIT 8  ";
     return pdo_query($sql);
 }
 function showCategoryHome() {
@@ -56,4 +56,5 @@ function addDetailOrder($order_id,$product_id,$quantity,$price) {
    $sql = "INSERT INTO order_detail(order_id,product_id,quantity,price) VALUES(?,?,?,?)";
    return pdo_execute($sql,$order_id,$product_id,$quantity,$price);
 }
+
 ?>
