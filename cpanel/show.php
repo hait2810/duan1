@@ -1,5 +1,5 @@
 <?php 
-if($_GET['show'] == 'showproducts') {
+if(isset($_GET['show']) && $_GET['show'] == 'showproducts') {
     ?>
   <div class="row">
         <div class="col-12">
@@ -87,7 +87,7 @@ if($_GET['show'] == 'showproducts') {
       </div>
 <?php 
 
-}else if($_GET['show'] == 'showcategory'){
+}else if(isset($_GET['show']) && $_GET['show'] == 'showcategory'){
     ?>
     <div class="row">
     <div class="col-12">
@@ -147,7 +147,7 @@ if($_GET['show'] == 'showproducts') {
     </div>
   </div>
   
-<?php }else if($_GET['show'] == "showcart"){
+<?php }else if(isset($_GET['show']) && $_GET['show'] == 'showcart'){
   ?>
 <div class="row">
     <div class="col-12">
@@ -164,7 +164,9 @@ if($_GET['show'] == 'showproducts') {
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CODE ORDERS</th>
                   <th class="text-secondary opacity-7">Detail cart</th>
+                  <th class="text-secondary opacity-7">Status</th>
                   <th class="text-secondary opacity-7">Delete</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -185,6 +187,11 @@ if($_GET['show'] == 'showproducts') {
                       Detail cart
                     </a>
                   </td>
+                  <td class="align-middle">
+                 
+                    '.$value['status'].'
+                  
+                </td>
                   <td class="align-middle ">
                     <a href="'.$ROOT_ADMIN.'?detailcart&deletecart='.$value['id'].'" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                       Delete

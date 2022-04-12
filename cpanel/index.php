@@ -100,12 +100,16 @@ if(isset($_GET['detailcart'])){
     $idcart = $_GET['detailcart'];
     $DetailCart = (DetailCart($idcart));
     $infocart = showInfoCart($idcart);
-  
-    $view = "detailcart.php";
-    if(isset($_GET['deletecart'])){
-            DeleteCart($_GET['deletecart']);
-            header("location: ?show=showcart");
+    if(isset($_POST['btn_status'])){
+        changeOrderStatus($_POST['status'],$idcart);
+        header("location: ?show=showcart");
     }
+    $view = "detailcart.php";
+    
+}
+if(isset($_GET['deletecart'])){
+    DeleteCart($_GET['deletecart']);
+    header("location: ?show=showcart");
 }
 
 

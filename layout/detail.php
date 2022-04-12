@@ -28,7 +28,7 @@
                     <div class="size distance">
                         <h3>Kích cỡ:
 
-                          
+                                <input type="hidden" name="sale" value="<?=$showDetailProduct1[0]['sale']?>" id="">
                                 <select name="sizes" id="">
                                     <option value="39">39</option>
                                     <option value="40">40</option>
@@ -69,31 +69,45 @@
 
           <div class="comments">
               <h3>Bình luận:</h3>
-             <?php if(isset($_SESSION['id'])) {
-                 ?>
-                  
-                  <textarea name="content" id="" cols="50" rows="3"></textarea> <br>
+            
+        <?php 
+        if(isset($_SESSION['id'])  && $_SESSION['roleId'] != 3) {
+            ?>
+              <textarea name="content" id="" cols="50" rows="3"></textarea> <br>
                   <button name="btn_cmt">Gửi bình luận</button>
-              
-          <?php   }else{
-              echo "Bạn cần đăng nhập để bình luận";
-          }
-          
-          ?>
+       <?php }else{
+           echo "Bạn chưa đăng nhập hoặc đã bị chặn bình luận";
+       }
+        ?>
+
+
             <?php 
             $listCmt = showCmt($detail);
             foreach ($listCmt as $key => $value) {
-                echo ' <div class="item-cmt">
+               ?>
+                <div class="item-cmt">
                 <div class="logo-user">
-                    <img src="'.$ROOT.'/assets/icon/users.png"    width="60px" alt="">
+                    <img src="<?=$ROOT?>/assets/icon/users.png"    width="60px" alt="">
                 </div>
                 <div class="content-cmt">
-                    <h5>'.$value['fullname'].' - <i>'.$value['time'].'</i></h5>
-                    <p>'.$value['content'].'</p>
+                    <h5><?=$value['fullname']?> - <i><?=$value['time']?>  <?php if(isset($_SESSION['id']) && $_SESSION['id'] == 1) {
+                           echo '
+                           <input type="hidden" name="iduser" value="'.$value['iduser'].'"/>
+                           
+                           <button name="btn_block" class="btn_block">Chặn cmt</button>
+                           
+                           
+                           ';
+                          
+                    } ?></i></h5>
+                   
+                    <p><?=$value['content']?></p>
                 </div>
-         </div>';
-            }
-            ?>
+         </div>
+     
+        <?php    } 
+        ?>
+            
            
         
            

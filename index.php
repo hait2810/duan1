@@ -16,7 +16,7 @@ if(isset($logout)) {
     if(isset($btn_submit)){
         $login = login($email,$password);
        
-        if($login['email']) {
+        if(isset($login['email'])) {
             $_SESSION['id'] = $login['id'];
             $_SESSION['email'] = $login['email'];
             $_SESSION['roleId'] = $login['roleId'];
@@ -52,20 +52,19 @@ if(isset($_GET['detail'])) {
 
     $id_detail = $_GET['detail'];
     $showDetailProduct1 = showDetailProduct($id_detail);
-    $view = $showDetailProduct1[0]['view'] + 1;
+    $view = $showDetailProduct1[0]['view'] + 1; 
+    updateView($view,$id_detail);
     $ai = intval($showDetailProduct1[0]['sale']);
                        
     $percent = ($ai/100)*$showDetailProduct1[0]['price'];
      $pricenew = $showDetailProduct1[0]['price'] - $percent;
-     
-    updateView($view,$id_detail);
     $similarProduct = similarProduct($showDetailProduct1[0]['idcategory']);
     if(isset($_POST['btn_cmt'])) {
-       $iduser =  $_SESSION['id'];
-      
-        
+       $iduser =  $_SESSION['id']; 
      addCmt($content,$iduser,$id_detail);
-     
+    }
+    if(isset($_POST['btn_block'])) {
+       editUser($_POST['iduser']);
     }
     if(isset($_POST['addcart'])){
         $item = [
@@ -75,6 +74,7 @@ if(isset($_GET['detail'])) {
             'price' => $pricenew,
             'quantity' => $_POST['quantity'],
             'size' => $_POST['sizes'],
+            'sale' => $_POST['sale'],
 
         ];
 
@@ -143,19 +143,15 @@ if(isset($_GET['cart'])) {
     }else if(isset($_POST['btn_order'])){
        
         if(empty($_POST['name'])){
-            echo '<a href="?cart">Quay lại</a>';
-           exit("Bạn chưa nhập tên người nhận"); 
+           $kq = "Vui lòng điền tên người nhận hàng";
         }else if(empty($_POST['phone'])){
-            echo '<a href="?cart">Quay lại</a>';
-            exit("Bạn chưa nhập SDT người nhận");      
+            $kq = "Vui lòng điền số điện thoại người nhận hàng";     
          }else if(empty($_POST['address'])){
-            echo '<a href="?cart">Quay lại</a>';
-           exit("Bạn chưa nhập địa chỉ người nhận");   
+            $kq = "Vui lòng điền địa chỉ người nhận hàng";  
          }else if(empty($_POST['quantity'])){
-            echo '<a href="?cart">Quay lại</a>';
-            exit("Giỏ hàng rỗng");
+            $kq = "Giỏ hàng rỗng";
          }
-      
+         
          
         
        $products = getProductbyId(implode(',',array_keys($_POST['quantity'])));
@@ -182,19 +178,27 @@ if(isset($_GET['cart'])) {
 
 
    
-     
   
-
-
-   foreach ($products as $key => $value) {
-    $prices1 = (intval($value['sale'])/100) * $value['price']; // tính phần trăm
-    $amount = ($value['price'] - $prices1)*$_POST['quantity'][$value['id']]; // giá - phần trăm
-    addDetailOrder($order,$value['id'],$_POST['quantity'][$value['id']],$amount);
-    unset($_SESSION['carts']);
+  foreach ($_SESSION['carts'] as $key => $value) {
+    $amount = $value['price'] *$value['quantity'];
     
-   }
-   echo 'Cảm ơn bạn đã mua hàng.<a href="'.$ROOT.'">Tiếp tục mua hàng</a>';
-    exit;
+    addDetailOrder($order,$value['id'],$value['quantity'],$value['price'],$value['img'],$value['name'],$value['size']);
+    unset($_SESSION['carts']);
+      
+  }
+  header("location: $ROOT?thank=$order#ordersuccess");
+  exit;
+
+
+//    foreach ($products as $key => $value) {
+//     $prices1 = (intval($value['sale'])/100) * $value['price']; // tính phần trăm
+//     $amount = ($value['price'] - $prices1)*$_POST['quantity'][$value['id']]; // giá - phần trăm
+//     addDetailOrder($order,$value['id'],$_POST['quantity'][$value['id']],$amount);
+//     unset($_SESSION['carts']);
+    
+//    }
+//    echo 'Cảm ơn bạn đã mua hàng.<a href="'.$ROOT.'">Tiếp tục mua hàng</a>';
+//     exit;
    
 
   
@@ -202,6 +206,14 @@ if(isset($_GET['cart'])) {
        
     }
     $view = "cart.php";
+   
 }
+if(isset($_GET['thank'])){
+    $view = "thanks.php";
+}
+if(isset($_GET['status'])){
+    $view = "statuspage.php";
+}
+
 
 include "./layout/tpl.php";

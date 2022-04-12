@@ -13,9 +13,12 @@
                 
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số lượng</th>  
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Thành tiền</th>
+                    <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name Product</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Quantity</th>  
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>  
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Size</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
             
                       
 
@@ -32,7 +35,7 @@
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"> <a href="'.$ROOT.'/?detail='.$value['product_id'].'">Mã sản phẩm : '.$value['product_id'].' => Click vào để xem chi tiết sản phẩm</a></h6>
+                            <h6 class="mb-0 text-sm">'.$value['name_product'].'</h6>
                             
                           </div>
                         </div>
@@ -41,9 +44,22 @@
                         <p class="text-xs font-weight-bold mb-0">'.$value['quantity'].'</p>
                      
                       </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">'.number_format($value['price']).' VNĐ</span>
-                      </td>
+                      <td>
+                      <p class="text-xs font-weight-bold mb-0">'.number_format($value['price']).' VNĐ</p>
+                   
+                    </td>
+                    <td>
+                    <p class="text-xs font-weight-bold mb-0"><img width="80px" src="'.$ROOT.'/assets/images/'.$value['images'].'" /></p>
+                 
+                  </td>
+                  <td>
+                  <p class="text-xs  font-weight-bold mb-0">'.$value['size'].'</p>
+               
+                </td>
+                <td>
+                <p class="text-xs font-weight-bold mb-0">'.number_format($value['price'] * $value['quantity']).' VNĐ</p>
+             
+              </td>
                      
                     
                    
@@ -67,11 +83,24 @@
                           <th>THÔNG TIN NGƯỜI NHẬN:</th>
                       </tr>
                       <tr>
-                          <th><?=$infocart[0]['address']?> </th>
-                          <th><?=$infocart[0]['phone']?></th>
-                          <th><?=$infocart[0]['name']?></th>
+                          <th>Địa chỉ:<?=$infocart[0]['address']?> </th>
+                          <th>Số điện thoại: <?=$infocart[0]['phone']?></th>
+                          <th>Họ tên: <?=$infocart[0]['name']?></th>
                       </tr>
-                    
+                    <tr>
+                     
+                      <td>
+                        <h3>Đổi trạng thái đơn hàng</h3>
+                        <form method="POST">
+                          <select name="status" id="">
+                            <option value="Đang xử lý">Đang xử lý</option>
+                            <option value="Đang gửi">Đang gửi</option>
+                            <option value="Gửi hàng thành công">Gửi hàng thành công</option>
+                          </select> <br> <br>
+                          <button name="btn_status" style="background-color: white;" type="submit" >Xác nhận</button>
+                        </form>
+                      </td>
+                    </tr>
                   </tfoot>
                 </table>
               </div>

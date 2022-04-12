@@ -51,7 +51,11 @@ header{
   list-style: none;
   position: relative;
 }
-
+.header-menu .logoweb{
+  width:120px;
+  height: 60px;
+  transform: translateY(-10px);
+}
 .logo-hot {
   position: absolute;
   top: 0;

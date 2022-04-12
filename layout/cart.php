@@ -71,21 +71,17 @@
                 <div class="info-cart">
                    
                         <label for="">Người nhận:</label>
+                        <input type="text" name="name" id="nameuser">
                         
-                        <input type="text" name="name" id="name">
-
                         <label for="">Số điện thoại:</label>
                         <input type="text" name="phone" id="phone">
-                       
+                        
                         <label for="">Địa chỉ:</label>
                         <input type="text" name="address" id="address">
+                       
                         <label for="">Ghi chú:</label>
                        <textarea name="note" id="note" cols="30" rows="10"></textarea>
-                        <h5 class="error"><?php 
-                        if(isset($error)){
-                            echo $error;
-                        }
-                        ?></h5>
+                       <h1 style="color: red;" id="error"></h1> <br>
                        <button name="btn_order" type="submit" class="btn_order">Đặt hàng</button>
                    
                 </div>
@@ -93,4 +89,26 @@
           
         </div>
     </form>
+    <script>
+        var order = document.querySelector(".btn_order");
+        
+        order.addEventListener("click", (e) => {
+
+                var nameuser = document.querySelector("#nameuser").value;
+                var phone = document.querySelector("#phone").value;
+                var address = document.querySelector("#address").value;
+                var formatphone = /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/;
+                if(!nameuser) {
+                document.querySelector("#error").innerHTML = "Tên người dùng không được để trống";
+                    e.preventDefault();
+                }else if(!formatphone.test(phone)) {
+                    document.querySelector("#error").innerHTML = "Vui lòng điền sdt đúng định dạng";
+                    e.preventDefault();
+                }else if(!address) {
+                    document.querySelector("#error").innerHTML = "Vui lòng không để trống địa chỉ !";
+                    e.preventDefault();
+                }
+                
+        })
+    </script>
      

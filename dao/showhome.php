@@ -1,6 +1,6 @@
 <?php 
 function showProductNew() {
-    $sql = "SELECT * FROM products LIMIT 8  ";
+    $sql = "SELECT * FROM products ORDER BY time DESC LIMIT 8 ";
     return pdo_query($sql);
 }
 function showCategoryHome() {
@@ -33,7 +33,7 @@ function addCmt($content,$iduser,$idproduct) {
     return pdo_execute($sql,$content,$iduser,$idproduct);
 }
 function showCmt($idproduct) {
-    $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=? ORDER BY time DESC   ";
+    $sql = "SELECT * FROM comments cmt INNER JOIN users us ON cmt.iduser = us.id WHERE idproduct=? ORDER BY time DESC";
     return pdo_query($sql,$idproduct);
 }
 function productSale() {
@@ -52,9 +52,24 @@ function addOrder($name,$phone,$address,$note,$total) {
     $sql = "INSERT INTO orders(name,phone,address,note,total) VALUES(?,?,?,?,?)";
     return pdo_executes($sql,$name,$phone,$address,$note,$total);
 }
-function addDetailOrder($order_id,$product_id,$quantity,$price) {
-   $sql = "INSERT INTO order_detail(order_id,product_id,quantity,price) VALUES(?,?,?,?)";
-   return pdo_execute($sql,$order_id,$product_id,$quantity,$price);
+function addDetailOrder($order_id,$product_id,$quantity,$price,$images,$name_product,$size) {
+   $sql = "INSERT INTO order_detail(order_id,product_id,quantity,price,images,name_product,size) VALUES(?,?,?,?,?,?,?)";
+   return pdo_execute($sql,$order_id,$product_id,$quantity,$price,$images,$name_product,$size);
 }
-
+function editUser($id) {
+    $sql = "UPDATE users SET roleId=3 WHERE id=?";
+    return pdo_execute($sql,$id);
+}
+function DetailcartH($idcart) {
+    $sql = "SELECT * FROM order_detail WHERE order_id=?";
+    return pdo_query($sql,$idcart);
+}
+function showOrder1($id) {
+    $sql = "SELECT * FROM orders WHERE id=?";
+    return pdo_query($sql,$id);
+}
+function showDetailOrder1($id) {
+    $sql = "SELECT * FROM order_detail WHERE order_id=?";
+    return pdo_query($sql,$id);
+}
 ?>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/detail.css">
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/detail-category.css">
     <link rel="stylesheet" href="<?= $ROOT?>/assets/css/cart.css">
+    <link rel="stylesheet" href="<?= $ROOT?>/assets/css/ordersuccess.css">
 </head>
 <body>
     <header>
@@ -21,7 +22,7 @@
         </div>
         <div class="header-menu">
             <div class="logo">
-                <a href="<?=$ROOT?>"><img src="./assets/logo/image 2.png" alt=""></a>
+                <a href="<?=$ROOT?>"><img class="logoweb" src="https://iweb.tatthanh.com.vn/pic/3/blog/images/logo-giay(33).jpg" alt=""></a>
             </div>
             <nav class="menu">
                 <ul>
@@ -81,7 +82,7 @@
     <div class="brooch">
         <h3>NẮNG LÊN PHỐ, CHÀNG LÊN ĐỒ</h3>
     </div>
-    <section class="banner">
+    <section class="banner" id="hihic">
         <img src="./assets/banner/banner_product_noibat.webp" alt="">
     </section>
     <main>
@@ -90,7 +91,7 @@
     <section class="footer-banner">
         <img src="./assets/banner/lambanner-thiet-ke-banner-nhu-nike.jpg" alt="">
     </section>
-    <div class="customer-reviews">
+    <!-- <div class="customer-reviews">
         <div class="logo">
             <img src="./assets/banner/2.jpg" alt="">
         </div>
@@ -108,11 +109,11 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     <footer>
        <div class="footer-m">
             <div class="address">
-                <img src="./assets/logo/image 2.png" alt="">
+                <img src="https://iweb.tatthanh.com.vn/pic/3/blog/images/logo-giay(33).jpg" width="100px" alt="">
                 <h5 class="name-company">
                     CÔNG TY CỔ PHẦN THỜI TRANG KOWIL VIỆT NAM
 Hotline: 1900 8079
