@@ -73,7 +73,13 @@
                     
                 </div>
                 <div class="cart">
+                   
                     <a href="?cart"><img src="./assets/icon/bags.png" width="30px" alt=""></a>
+                    <?php 
+                    if(isset($_SESSION['carts'])) {
+                        echo '<span class="cart-quantity">'.count($_SESSION['carts']).'</span>';
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -82,7 +88,7 @@
     <div class="brooch">
         <h3>NẮNG LÊN PHỐ, CHÀNG LÊN ĐỒ</h3>
     </div>
-    <section class="banner" id="hihic">
+    <section class="banner">
         <img src="./assets/banner/banner_product_noibat.webp" alt="">
     </section>
     <main>

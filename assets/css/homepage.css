@@ -316,3 +316,17 @@ footer {
 .product .views {
   font-size: 28px;
 }
+.cart {
+  position: relative;
+}
+.cart-quantity {
+  width: 10px;
+  font-size: 10px;
+  position: absolute;
+  top: 1;
+  background-color: #c9ae63;
+  padding: 2px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}

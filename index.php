@@ -142,15 +142,6 @@ if(isset($_GET['cart'])) {
         
     }else if(isset($_POST['btn_order'])){
        
-        if(empty($_POST['name'])){
-           $kq = "Vui lòng điền tên người nhận hàng";
-        }else if(empty($_POST['phone'])){
-            $kq = "Vui lòng điền số điện thoại người nhận hàng";     
-         }else if(empty($_POST['address'])){
-            $kq = "Vui lòng điền địa chỉ người nhận hàng";  
-         }else if(empty($_POST['quantity'])){
-            $kq = "Giỏ hàng rỗng";
-         }
          
          
         
